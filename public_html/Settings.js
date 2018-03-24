@@ -174,4 +174,17 @@ var drawModule = (function(){
         
     }
     
-})
+    //init function to start the program
+    var init = function(){
+        direction = 'down';
+        drawSnake();
+        createFood();
+        gameloop = setInterval(paint,80);
+        
+        //returnt he only init function at the end of the module
+    }
+    return{
+        init:init
+    };
+    
+}());
