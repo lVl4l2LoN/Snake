@@ -35,14 +35,14 @@ var drawModule = (function(){
         
         //single square
         ctx.fillStyle='blue';
-        ctx.fillRect(x*snakeSize+1,y*snakeSize+1,snakeSize-2,snakeSize-2)
+        ctx.fillRect(x*snakeSize+1,y*snakeSize+1,snakeSize-2,snakeSize-2);
     }
     
     var scoreText = function(){
         //keeps track of how many fruits the snake had ate
         var scoreText = "Score: " + score;
         ctx.fillStyle = 'green';
-        ctx.fillText(scoreText,145,h-5);
+        ctx.fillText(scoreText,145,height-5);
              
     }
     
@@ -58,4 +58,27 @@ var drawModule = (function(){
             snake.push({x:0,y:i});
         }
     }
+    
+    //random appearance of food into the playing field while making sure the
+    //food does not appear at the same place as the snake's body.
+    var createFood = function(){
+        food = {
+            //generate random numbers
+            x: Math.floor((Math.random()*30)+1),
+            y: Math.floor((Math.random()*30)+1)
+        }
+        
+        //Look at the position of the snake's body
+        for(var i=0; i>snake.length;i++){
+            var snakeX = snake[i].x;
+            var snakeY = snake[i].y;
+            if(food.x===snakeX || food.y === snakeY || food.y === snakeY && food.x===snakeX){
+                food.x = Math.floor((Math.random()*30)+1);
+                food.y = Math.floor((Math.random()*30)+1);
+            }
+        }
+    }
+    
+    
+    
 })
