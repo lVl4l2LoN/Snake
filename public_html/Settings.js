@@ -26,7 +26,7 @@ var drawModule = (function(){
         //border of the square
         ctx.strokeStyle = 'darkred';
         ctx.strokeRect(x*snakeSize,y*snakeSize,snakeSize,snakeSize);
-    }
+    };
     
     var fruit = function(x,y){
         //border of the fruit
@@ -36,7 +36,7 @@ var drawModule = (function(){
         //single square
         ctx.fillStyle='blue';
         ctx.fillRect(x*snakeSize+1,y*snakeSize+1,snakeSize-2,snakeSize-2);
-    }
+    };
     
     var scoreText = function(){
         //keeps track of how many fruits the snake had ate
@@ -44,7 +44,7 @@ var drawModule = (function(){
         ctx.fillStyle = 'green';
         ctx.fillText(scoreText,145,height-5);
              
-    }
+    };
     
     //Creating the structure of the snake
     var drawSnake = function(){
@@ -54,10 +54,10 @@ var drawModule = (function(){
         
         //The for loop is used to put the 5 squares into the array.
         //The squres will have x and y values. X = 0 and y will be the index value
-        for(var i = length; i >=0; i--){
+        for(var i = length-1; i >=0; i--){
             snake.push({x:0,y:i});
         }
-    }
+    };
     
     //random appearance of food into the playing field while making sure the
     //food does not appear at the same place as the snake's body.
@@ -66,7 +66,7 @@ var drawModule = (function(){
             //generate random numbers
             x: Math.floor((Math.random()*30)+1),
             y: Math.floor((Math.random()*30)+1)
-        }
+        };
         
         //Look at the position of the snake's body
         for(var i=0; i>snake.length;i++){
@@ -77,7 +77,7 @@ var drawModule = (function(){
                 food.y = Math.floor((Math.random()*30)+1);
             }
         }
-    }
+    };
     
     //checkCollision function to see if the snake crashes into itself
     var checkCollision = function(x,y,array){
@@ -86,7 +86,7 @@ var drawModule = (function(){
                 return true;
         }
         return false;
-    }
+    };
     
     //the main function
     var paint = function(){
@@ -96,7 +96,7 @@ var drawModule = (function(){
         
         //Give the space a border
         ctx.strokeStyle = 'black';
-        ctx.strokeReact(0,0,width,height);
+        ctx.strokeRect(0,0,width,height);
         
         //disable the start button while playing
         btn.setAttribute('disabled', true);
@@ -129,7 +129,7 @@ var drawModule = (function(){
          * If the checkCollision is true, it means the snake has crashed on
          * itself and the game will also stop.
          */
-        if(snakeX==-1 || snakeX == width/snakeSize || snakeY == -1 || snakeY == h/snakeSize||checkCollision(snakeX,snakeY,snake)){
+        if(snakeX==-1 || snakeX == width/snakeSize || snakeY == -1 || snakeY == height/snakeSize||checkCollision(snakeX,snakeY,snake)){
             //stop the game
             //The start button is enabled again.
             btn.removeAttribute('disabled',true);
@@ -137,6 +137,9 @@ var drawModule = (function(){
             //clean up the canvas
             ctx.clearRect(0,0,width,height);
             gameloop = clearInterval(gameloop);
+            
+            //reset score to 0
+            score = 0;
             return;
         }
         
@@ -163,7 +166,7 @@ var drawModule = (function(){
         
         //for each element of the array create a square using the bodySnake function
         for(var i =0; i<snake.length;i++){
-            bodySnake(snake[i].x,snake[i].y);
+            bodyOfSnake(snake[i].x,snake[i].y);
         }
         
         //create the food using the fruit function
@@ -172,7 +175,7 @@ var drawModule = (function(){
         //place the score text
         scoreText();
         
-    }
+    };
     
     //init function to start the program
     var init = function(){
