@@ -46,5 +46,16 @@ var drawModule = (function(){
              
     }
     
-    
+    //Creating the structure of the snake
+    var drawSnake = function(){
+        //The snake will start with the length of 5 squares
+        var length = 4;
+        snake = [];
+        
+        //The for loop is used to put the 5 squares into the array.
+        //The squres will have x and y values. X = 0 and y will be the index value
+        for(var i = length; i >=0; i--){
+            snake.push({x:0,y:i});
+        }
+    }
 })
