@@ -14,7 +14,40 @@
     var btn = document.getElementById('btn');
     btn.addEventListener("click", function(){
         drawModule.init();
+        var btnUp = document.getElementById('btnUp');
+    btnUp.addEventListener("click", function(){
+        if(direction !='down'){
+                    direction = 'up';
+                    console.log('up');
+                }
     });
+    
+    var btnDwn = document.getElementById('btnDwn');
+    btnDwn.addEventListener("click", function(){
+        if(direction !='up'){
+                    direction = 'down';
+                    console.log('down');
+                }
+    });
+    
+    var btnL = document.getElementById('btnL');
+    btnL.addEventListener("click", function(){
+        if(direction !='right'){
+                    direction = 'left';
+                }
+                console.log('left');
+    });
+    
+    var btnR = document.getElementById('btnR');
+    btnR.addEventListener("click", function(){
+        if(direction != 'left'){
+                    direction = 'right';
+                    console.log('right');
+                }
+    });
+    });
+    
+    
     
     document.onkeydown = function(event){
         
@@ -49,6 +82,8 @@
                 break;
         }
     }
+    
+    
 })(window, document,drawModule);
 
 
