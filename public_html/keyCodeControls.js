@@ -14,6 +14,7 @@
     var btn = document.getElementById('btn');
     btn.addEventListener("click", function(){
         drawModule.init();
+        document.getElementById("gameOverMsg").innerHTML = "";
         
         //allow the snake to move by clicking on the onscreen direction buttons
         var btnUp = document.getElementById('btnUp');

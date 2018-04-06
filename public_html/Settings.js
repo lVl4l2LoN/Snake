@@ -138,7 +138,7 @@ var drawModule = (function(){
             ctx.clearRect(0,0,width,height);
             gameloop = clearInterval(gameloop);
             
-            document.getElementById("gameOverMsg").innerHTML = "Game Over! Score:" + score +" Play Again?";
+            document.getElementById("gameOverMsg").innerHTML = "Game Over! Recent score:" + score +" Play Again?";
             //reset score to 0
             score = 0;
             return;
