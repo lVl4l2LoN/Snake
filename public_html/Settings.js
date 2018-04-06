@@ -126,8 +126,8 @@ var drawModule = (function(){
          * The snake dies if it crashes into itself or the edge of the canvas.
          * If x or y of an element(squaure) of the snake does not fit inside the
          * canvas, the game will stop.
-         * If the checkCollision is true, it means the snake has crashed on
-         * itself and the game will also stop.
+         * If the checkCollision is true, it means the snake had crashed on
+         * itself or the wall and the game will also stop.
          */
         if(snakeX==-1 || snakeX == width/snakeSize || snakeY == -1 || snakeY == height/snakeSize||checkCollision(snakeX,snakeY,snake)){
             //stop the game
@@ -138,6 +138,7 @@ var drawModule = (function(){
             ctx.clearRect(0,0,width,height);
             gameloop = clearInterval(gameloop);
             
+            document.getElementById("gameOverMsg").innerHTML = "Game Over! Score:" + score +" Play Again?";
             //reset score to 0
             score = 0;
             return;

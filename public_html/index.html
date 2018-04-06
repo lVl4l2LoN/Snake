@@ -9,10 +9,13 @@ competa website.
         <title>Snake</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type ="text/CSS" href="gameCSS.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <div>
             <canvas id = 'canvas' width ='350' height='350'></canvas>
+        <p id ="gameOverMsg"></p>
         <p>Press start to play the game!</p>
         <button id="btn">START</button>
         
@@ -24,10 +27,10 @@ competa website.
         <script src="keyCodeControls.js"></script>
         
         <div class="dPad">
-            <button id="btnUp">UP</button><br><br>
-  <button id="btnL">LEFT</button>
-  <button id="btnR">RIGHT</button><br><br>
-  <button id="btnDwn">DOWN</button>
+            <button id="btnUp" class="fa fa-caret-square-o-up"></button><br><br>
+  <button id="btnL" class="fa fa-caret-square-o-left"></button>
+  <button id="btnR" class="fa fa-caret-square-o-right"></button><br><br>
+  <button id="btnDwn" class="fa fa-caret-square-o-down"></button>
         </div>
     </body>
 </html>

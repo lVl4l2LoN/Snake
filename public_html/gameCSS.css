@@ -1,0 +1,19 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 6, 2018, 1:42:02 PM
+    Author     : lVl4rl2LoN
+*/
+
+.dPad{
+    text-align: center;
+    width: 300px;
+}
+
+#btnDwn, #btnUp, #btnL, #btnR{
+    font-size: 30px;
+    color: red;
+}
